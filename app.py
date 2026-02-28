@@ -184,17 +184,18 @@ st.markdown("""
 st.markdown("<div class='fade-in'><h1 class='main-title'>To My Brothers</h1></div>", unsafe_allow_html=True)
 st.markdown("<div class='fade-in'><p class='sub-title'>Haldia Institute of Technology • Saraswati Puja Committee 2026</p></div>", unsafe_allow_html=True)
 
-if os.path.exists("banner.jpg"):
+# Checking for the exact banner filename from your screenshot
+if os.path.exists("banner.png"):
     st.markdown("<div class='fade-in'>", unsafe_allow_html=True)
-    st.image("banner.jpg", use_container_width=True)
+    st.image("banner.png", use_container_width=True)
     st.markdown("</div><br>", unsafe_allow_html=True)
 
 # --- THE LETTER ---
 st.markdown("""
 <div class='fade-in letter-box'>
     <p>Dear Friends,</p>
-    <p>As you all know, my family recently received the difficult news of my father, Samir Singha Mahapatra's, Stage 1 cancer diagnosis. We have been preparing for his upcoming surgery on 6th March, and it has been a deeply challenging time emotionally and financially.</p>
-    <p>When I found out that our Saraswati Puja Committee came together to contribute to his treatment fund, I was left completely speechless. In a world where everyone is busy fighting their own battles, you took the time and resources to help me fight mine.</p>
+    <p>I am writing this to share some recent, difficult news regarding my family. Recently, my father, Samir Singha Mahapatra, was diagnosed with Stage 1 cancer. We have been urgently preparing for his upcoming surgery on 6th March, and as you can imagine, it has been a deeply challenging time for us both emotionally and financially.</p>
+    <p>When I learned that our Saraswati Puja Committee members came together to contribute to his treatment fund, I was left completely speechless. In a world where everyone is busy fighting their own battles, you took the time and resources to help me fight mine.</p>
     <p>I wanted to share his medical updates here so you can see exactly how your generous contributions are giving my father hope. Your support is a powerful reminder that I am not alone.</p>
     <p>Thank you, from the bottom of my heart, for standing by me when I needed it the most.</p>
     <br>
@@ -220,6 +221,7 @@ with col_rep2:
         st.markdown("<p class='photo-caption'>Initial Eye Scan</p></div>", unsafe_allow_html=True)
 
 # --- FINANCIAL CONTRIBUTION (THE 25K RECEIPT) ---
+# Checking for the exact payment filename from your screenshot
 if os.path.exists("payment.jpeg"):
     st.markdown("<div class='fade-in'><h3 class='sub-header'>The Impact of Your Generosity</h3></div>", unsafe_allow_html=True)
     col_pay1, col_pay2, col_pay3 = st.columns([1, 1.5, 1])
