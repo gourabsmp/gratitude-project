@@ -42,7 +42,7 @@ st.markdown("""
         font-style: italic;
         color: #7f8c8d;
         font-size: 1.3em;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     /* The Letter Box */
@@ -66,6 +66,15 @@ st.markdown("""
         font-size: 2.2em;
         margin-bottom: 25px;
         margin-top: 20px;
+    }
+    
+    .sub-header {
+        font-family: 'Playfair Display', serif;
+        text-align: center; 
+        color: #2c3e50; 
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        margin-top: 30px;
     }
 
     /* Hero Cards for the Grid */
@@ -171,9 +180,14 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- HEADER ---
+# --- HEADER & BANNER ---
 st.markdown("<div class='fade-in'><h1 class='main-title'>To My Brothers</h1></div>", unsafe_allow_html=True)
 st.markdown("<div class='fade-in'><p class='sub-title'>Haldia Institute of Technology • Saraswati Puja Committee 2026</p></div>", unsafe_allow_html=True)
+
+if os.path.exists("banner.jpg"):
+    st.markdown("<div class='fade-in'>", unsafe_allow_html=True)
+    st.image("banner.jpg", use_container_width=True)
+    st.markdown("</div><br>", unsafe_allow_html=True)
 
 # --- THE LETTER ---
 st.markdown("""
@@ -191,7 +205,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- MEDICAL UPDATES & TRANSPARENCY ---
-st.markdown("<div class='fade-in'><h2 class='section-header'>Medical Updates & Treatment Plan</h2></div>", unsafe_allow_html=True)
+st.markdown("<div class='fade-in'><h2 class='section-header'>Transparency & Treatment Plan</h2></div>", unsafe_allow_html=True)
 
 col_rep1, col_rep2 = st.columns(2)
 with col_rep1:
@@ -204,6 +218,16 @@ with col_rep2:
         st.markdown("<div class='fade-in'>", unsafe_allow_html=True)
         st.image("scan.jpeg", use_container_width=True)
         st.markdown("<p class='photo-caption'>Initial Eye Scan</p></div>", unsafe_allow_html=True)
+
+# --- FINANCIAL CONTRIBUTION (THE 25K RECEIPT) ---
+if os.path.exists("payment.jpeg"):
+    st.markdown("<div class='fade-in'><h3 class='sub-header'>The Impact of Your Generosity</h3></div>", unsafe_allow_html=True)
+    col_pay1, col_pay2, col_pay3 = st.columns([1, 1.5, 1])
+    with col_pay2:
+        st.markdown("<div class='fade-in' style='border: 1px solid #e1e5eb; padding: 10px; border-radius: 10px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05);'>", unsafe_allow_html=True)
+        st.image("payment.jpeg", use_container_width=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("<p class='photo-caption' style='font-size: 1.1em; color: #2c3e50; font-weight: bold;'>₹25,000 Received with deep gratitude.</p>", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -268,7 +292,6 @@ st.write("")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.markdown("<div class='fade-in'>", unsafe_allow_html=True)
-    # The button is now targeted directly by the !important CSS overrides above
     if st.button("Click to receive my thanks 🙏", use_container_width=True):
         st.session_state.thanked = True
     st.markdown("</div>", unsafe_allow_html=True)
