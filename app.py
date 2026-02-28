@@ -86,7 +86,7 @@ st.markdown("""
     <p>I wanted to share his medical updates here so you can see exactly how your generous contributions are giving my father hope. Your support is a powerful reminder that I am not alone.</p>
     <p>Thank you, from the bottom of my heart, for standing by me when I needed it the most.</p>
     <br>
-    <p><i>With immense gratitude,</i><br><b>Gourab</b></p>
+    <p><i>With immense gratitude,</i><br><b>Gourab Singha Mahapatra</b><br><span style='font-size: 0.9em; color: #7f8c8d;'>Mechanical Engineering, Batch of 2019-2023</span></p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -95,20 +95,20 @@ st.markdown("<h2 style='text-align: center; color: #2c3e50; margin-bottom: 20px;
 
 col_rep1, col_rep2 = st.columns(2)
 with col_rep1:
-    if os.path.exists("prescription.jpg"):
-        st.image("prescription.jpg", use_container_width=True)
+    if os.path.exists("prescription.jpeg"):
+        st.image("prescription.jpeg", use_container_width=True)
         st.markdown("<p class='photo-caption'>Surgery Scheduled for 6th March</p>", unsafe_allow_html=True)
 with col_rep2:
-    if os.path.exists("scan.jpg"):
-        st.image("scan.jpg", use_container_width=True)
+    if os.path.exists("scan.jpeg"):
+        st.image("scan.jpeg", use_container_width=True)
         st.markdown("<p class='photo-caption'>Initial Eye Scan</p>", unsafe_allow_html=True)
 
 st.divider()
 
 # --- GROUP PHOTO ---
 st.markdown("<h2 style='text-align: center; color: #2c3e50; margin-bottom: 20px;'>Our Family</h2>", unsafe_allow_html=True)
-if os.path.exists("group_photo.jpg"):
-    st.image("group_photo.jpg", use_container_width=True)
+if os.path.exists("group_photo.jpeg"):
+    st.image("group_photo.jpeg", use_container_width=True)
     st.markdown("<p class='photo-caption'>Saraswati Puja 2026</p>", unsafe_allow_html=True)
 
 st.divider()
@@ -131,7 +131,7 @@ friends = [
     {"name": "Chirag Sinha", "dept": "ME"},
     {"name": "Saksham", "dept": "CSE DS"},
     {"name": "Abhinav Anand", "dept": "CSE DS"}
-]
+] #
 
 # Generate the 3-column grid
 cols = st.columns(3)
