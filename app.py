@@ -130,24 +130,32 @@ st.markdown("""
         margin: auto;
     }
 
-    /* Interactive Button */
-    .thank-you-btn > button {
-        width: 100%; 
-        background: linear-gradient(135deg, #d4af37 0%, #b5952f 100%);
-        color: white;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 600; 
-        font-size: 1.2em; 
-        border-radius: 30px;
-        border: none; 
-        padding: 15px; 
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    /* Streamlit Native Button Override */
+    div.stButton > button {
+        background: linear-gradient(135deg, #d4af37 0%, #b5952f 100%) !important;
+        color: white !important;
+        font-family: 'Source Sans Pro', sans-serif !important;
+        font-weight: 600 !important; 
+        font-size: 1.2em !important; 
+        border-radius: 30px !important;
+        border: none !important; 
+        padding: 10px 20px !important; 
+        transition: all 0.3s ease !important;
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
+        width: 100% !important;
     }
-    .thank-you-btn > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+    div.stButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5) !important;
+        color: white !important;
+        border: none !important;
     }
+    div.stButton > button:focus {
+        color: white !important;
+        border: none !important;
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
+    }
+    
     .photo-caption {
         text-align: center; font-style: italic; color: #95a5a6;
         margin-top: 10px; margin-bottom: 25px; font-size: 0.9em;
@@ -256,12 +264,14 @@ st.markdown("""
 if 'thanked' not in st.session_state:
     st.session_state.thanked = False
 
+st.write("")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    st.markdown('<div class="fade-in thank-you-btn">', unsafe_allow_html=True)
-    if st.button("Click to receive my thanks 🙏"):
+    st.markdown("<div class='fade-in'>", unsafe_allow_html=True)
+    # The button is now targeted directly by the !important CSS overrides above
+    if st.button("Click to receive my thanks 🙏", use_container_width=True):
         st.session_state.thanked = True
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 if st.session_state.thanked:
     st.balloons()
